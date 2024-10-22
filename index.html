@@ -10,10 +10,10 @@
     <ul id="file-list"></ul>
 
     <script>
-        // List of files (this could also come from a JSON file)
+        // List of files
         const files = [
             { name: "firmware.bin", url: "https://findus-bot.github.io/firmware-website/firmware.bin" },
-            { name: "infos.json", url: "https://findus-bot.github.io/firmware-website/infos.json" }
+            { name: "info.json", url: "https://findus-bot.github.io/firmware-website/info.json" }
         ];
 
         // Populate the list
@@ -23,7 +23,9 @@
             const a = document.createElement('a');
             a.href = file.url;
             a.textContent = file.name;
-            a.download = true;
+
+            // Explicitly set the download attribute to the file name
+            a.setAttribute('download', file.name);
             li.appendChild(a);
             fileList.appendChild(li);
         });
