@@ -1,3 +1,32 @@
-<h1>
-  Floads
-</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firmware Files</title>
+</head>
+<body>
+    <h1>Available Files</h1>
+    <ul id="file-list"></ul>
+
+    <script>
+        // List of files (this could also come from a JSON file)
+        const files = [
+            { name: "firmware.bin", url: "firmware.bin" },
+            { name: "infos.json", url: "infos.json" }
+        ];
+
+        // Populate the list
+        const fileList = document.getElementById('file-list');
+        files.forEach(file => {
+            const li = document.createElement('li');
+            const a = document.createElement('a');
+            a.href = file.url;
+            a.textContent = file.name;
+            a.download = true;
+            li.appendChild(a);
+            fileList.appendChild(li);
+        });
+    </script>
+</body>
+</html>
